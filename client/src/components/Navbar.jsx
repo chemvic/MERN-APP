@@ -2,9 +2,7 @@ import React from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from 'react-toastify'
-import { checkIsAuth } from "../redux/features/auth/authSlice";
-import { logout } from "../redux/features/auth/authSlice.js";
-
+import { checkIsAuth, logout} from "../redux/features/auth/authSlice";
 
 export const Navbar = ()=>{
     let isAuth = useSelector(checkIsAuth);
