@@ -8,15 +8,15 @@ import { loginUser } from "../redux/features/auth/authSlice";
 export const LoginPage = ()=>{
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
-    const { message } = useSelector(state=> state.auth)
+    const { status } = useSelector(state=> state.auth)
     const dispatch = useDispatch();
     const navigate =useNavigate();
 
     useEffect(()=>{
-        if(message){
-            toast(message);
+        if(status){
+            toast(status);
         }
-    }, [message, navigate]);
+    }, [status, navigate]);
 
     const handleSubmit = () => {
         try {

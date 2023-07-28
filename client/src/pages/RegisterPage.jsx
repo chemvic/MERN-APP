@@ -10,14 +10,14 @@ import { registerUser } from "../redux/features/auth/authSlice";
 export const RegisterPage = ()=>{
     const[username, setUsername] = useState('');
     const[password, setPassword] = useState('');
-    const { message } = useSelector(state=> state.auth)
+    const { status } = useSelector(state=> state.auth)
     const dispatch = useDispatch();
 
     useEffect(()=>{
-        if(message){
-            toast(message);
+        if(status){
+            toast(status);
         }
-    }, [message]);
+    }, [status]);
 
     const handleSubmit = () => {
         try {

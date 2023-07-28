@@ -3,7 +3,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink } from "react-router-dom";
 import { toast } from 'react-toastify'
 import { checkIsAuth } from "../redux/features/auth/authSlice";
- import logout from "../redux/features/auth/authSlice.js";
+import { logout } from "../redux/features/auth/authSlice.js";
 
 
 export const Navbar = ()=>{

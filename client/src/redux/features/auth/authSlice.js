@@ -111,6 +111,12 @@ export const getMe = createAsyncThunk('auth/loginUser',
             state.isLoading = false
         },
     },
+});
+
+ export const checkIsAuth = (state) => Boolean(state.auth.token);
+ export const { logout } = authSlice.actions;
+ 
+ export default authSlice.reducer;
 
 
         // (builder) =>{
@@ -165,8 +171,4 @@ export const getMe = createAsyncThunk('auth/loginUser',
         // })
   
 
- });
-
- export const checkIsAuth = (state) => Boolean(state.auth.token);
  
- export default authSlice.reducer;
