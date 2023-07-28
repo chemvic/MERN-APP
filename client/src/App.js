@@ -1,5 +1,7 @@
 import {Layout} from './components/Layout.jsx';
 import {Routes, Route} from 'react-router-dom';
+import {ToastContainer} from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { MainPage } from './pages/MainPage.jsx';
 import { PostsPage } from './pages/PostsPage.jsx';
 import { PostPage } from './pages/PostPage.jsx';
@@ -7,11 +9,21 @@ import { AddPostPage } from './pages/AddPostPage.jsx';
 import { RegisterPage } from './pages/RegisterPage.jsx';
 import { LoginPage } from './pages/LoginPage';
 import { EditPostPage } from './pages/EditPostPage.jsx';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { getMe } from './redux/features/auth/authSlice.js';
 
 
 function App() {
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getMe())
+  },[dispatch]);
+
   return (
     <Layout>
+      
       <Routes>
         <Route path='/' element={<MainPage/>}/>
         <Route path='/posts' element={<PostsPage/>} />
@@ -21,6 +33,7 @@ function App() {
         <Route path='/register' element={<RegisterPage/>} />
         <Route path='/login' element={<LoginPage/>} />
       </Routes>
+      <ToastContainer autoClose={1000} />
      
     </Layout>
   );

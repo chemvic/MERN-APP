@@ -12,8 +12,10 @@ import App from './App';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
     // basename="/mern-app"
-<BrowserRouter >
-    <App />
-    </BrowserRouter>
+    <Provider store={store}>
+        <BrowserRouter >
+            <App />
+        </BrowserRouter>
+    </Provider>
     );
 

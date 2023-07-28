@@ -9,11 +9,13 @@ try {
    
     const user = await User.findOne({username});
     if (!user) {
-        return res.status(401).json({message:"Email is Not authorized"});
+        return res.json({message:"Email is Not authorized"});
+        //status(401).
     };
     const isPasswordCorrect = await bcrypt.compare(password, user.password);
     if (!isPasswordCorrect) {
-        return res.status(401).json({message:"Password is wrong"})
+        return res.json({message:"Password is wrong"});
+        //.status(401)
     };
     const payload ={
         id:user._id,
@@ -22,10 +24,11 @@ try {
 
     await User.findByIdAndUpdate(user._id, {token});
 
-    res.status(200).json({"token": token,
+    res.json({"token": token,
     "user":{
         "username": username
     }});
+    //.status(200)
     
 } catch (error) {
     console.log(error);
