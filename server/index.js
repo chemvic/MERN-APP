@@ -4,6 +4,7 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 
 import authRoute from './routes/auth.js';
+import postRoute from './routes/posts.js';
 
 const app = express();
 dotenv.config();
@@ -14,8 +15,9 @@ const {DB_HOST, PORT}=process.env;
 //Middlewares
 app.use(cors());
 app.use(express.json());
-
+// routes
 app.use('/api/auth', authRoute);
+app.use('/api/posts', postRoute);
 
  function start(){
  
