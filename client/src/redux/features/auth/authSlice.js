@@ -45,7 +45,6 @@ export const getMe = createAsyncThunk('auth/loginUser',
     async()=>{
     try {
         const {data} = await axios.get('/auth/me');
-        console.log("Это проверка даты: ",data);
         return data;
     } 
     catch (error) {
