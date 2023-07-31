@@ -1,7 +1,7 @@
 import {Layout} from './components/Layout.jsx';
 import {Routes, Route} from 'react-router-dom';
-import {ToastContainer} from 'react-toastify';
-import 'react-toastify/dist/ReactToastify.css';
+// import {ToastContainer} from 'react-toastify';
+// import 'react-toastify/dist/ReactToastify.css';
 import { MainPage } from './pages/MainPage.jsx';
 import { PostsPage } from './pages/PostsPage.jsx';
 import { PostPage } from './pages/PostPage.jsx';
@@ -32,8 +32,7 @@ function App() {
         <Route path='/new' element={<AddPostPage/>} />
         <Route path='/register' element={<RegisterPage/>} />
         <Route path='/login' element={<LoginPage/>} />
-      </Routes>
-      <ToastContainer autoClose={1000} />
+      </Routes>   
      
     </Layout>
   );

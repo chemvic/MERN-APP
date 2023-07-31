@@ -18,15 +18,15 @@ export const LoginPage = ()=>{
             toast(status);
         };
         if (isAuth) {
-            navigate('/');
+            navigate('/', { replace: true });
         }
     }, [status, navigate, isAuth]);
 
     const handleSubmit = () => {
         try {
             dispatch(loginUser({username, password}));
-            setUsername ('');
-            setPassword ('');
+            // setUsername ('');
+            // setPassword ('');
             
         } catch (error) {
             console.log(error);
@@ -34,7 +34,7 @@ export const LoginPage = ()=>{
     }
 
 
-    return <form className="w-1/4 h-60 mx-auto mt-40">
+    return <form  onSubmit={(e) => e.preventDefault()}className="w-1/4 h-60 mx-auto mt-40">
         <h1 className="text-lg text-white text-center">Authorization</h1>
         <label className="text-xs text-gray-400">
             Username:
@@ -61,4 +61,4 @@ export const LoginPage = ()=>{
             <Link to={'/register'} className="flex justify-center items-center text-xs text-white">Registration</Link>
         </div>
         </form>
-}
+};
